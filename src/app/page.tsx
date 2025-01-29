@@ -10,19 +10,31 @@ export default function Home() {
     frameworkUrl: unityURL + "/build.framework.js",
     codeUrl: unityURL + "/build.wasm",
   });
-  console.log(loadingProgression);
 
   return (
     <div className="container">
       {isLoaded === false && (
-        <div style={{ left: "50", right: "50" }}>
-          <p>Loading... ({loadingProgression}%)</p>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            zIndex: -1,
+          }}
+        >
+          <p>Loading... ({loadingProgression * 100}%)</p>
         </div>
       )}
       <Unity
         id="unity-canvas"
         unityProvider={unityProvider}
-        style={{ width: "100vw", height: "100vh" }}
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "none",
+          cursor: "default",
+        }}
         matchWebGLToCanvasSize={true}
         devicePixelRatio={2}
       />
