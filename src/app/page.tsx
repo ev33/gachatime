@@ -21,9 +21,10 @@ export default function Home() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             zIndex: -1,
+            color: "white",
           }}
         >
-          <p>Loading... ({loadingProgression * 100}%)</p>
+          <p>가챠타임 입장하는 중.. ({loadingProgression * 100}%)</p>
         </div>
       )}
       <Unity
